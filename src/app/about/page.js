@@ -1,0 +1,66 @@
+"use client";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import NavBar from "../components/NavBar";
+import RedesSociales from "../components/redesSociales";
+import PieDePagina from "../components/pieDePagina";
+import HeaderConRedes from "../components/headerConRedes";
+
+export default function SobreMi() {
+  return (
+    <main
+      className="bg-cover bg-fixed bg-center p-10 relative lg:h-screen lg:overflow-hidden"
+      style={{ backgroundImage: "url('/assets/fondito.jpg')" }}
+    >
+      {/* Header reutilizable */}
+                  <HeaderConRedes titulo="Sobre mi" />
+            
+                  {/* Espacio para compensar header fijo */}
+                  <div className="h-44"></div>
+
+      {/* Bloque principal */}
+<section className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-36 px-6 md:px-8 lg:px-12 max-w-7xl mx-auto lg:min-h-[70vh]">  
+  {/* Texto */}
+  <motion.div
+    initial={{ opacity: 0, x: -40 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+    className="lg:w-2/5 max-w-xl order-1 lg:order-1 text-left"
+  >
+    <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 handwriting mb-6">
+      Diseñadora web
+    </h2>
+    <p className="text-lg text-gray-800 leading-relaxed mb-6 font-semibold">
+        ¡Hola! Soy Rocío y comencé este viaje a principios de 2023, cuando después de muchos años decidí estudiar. Fue un gran desafío, ya que partí literalmente desde cero en programación, pero con mucha motivación y curiosidad por aprender.
+    </p>
+    <p className="text-lg text-gray-800 leading-relaxed mb-6 font-semibold">
+      El diseño es un área que me atrae profundamente y que he podido explorar también a través de la orfebrería, oficio que llevo varios años desarrollando. La mezcla entre creatividad y técnica que he aprendido con la orfebrería la relaciono con el diseño y desarrollo web: partir desde la investigación y los primeros bocetos, hasta ver cómo todo se transforma en un sitio web funcional.
+    </p>
+    <p className="text-lg text-gray-800 leading-relaxed font-semibold">
+      Si quieres que tus ideas se conviertan en un sitio web, me encantaría trabajar contigo 👩‍💻
+
+    </p>
+  </motion.div>
+
+  {/* Imagen */}
+  <motion.div
+    initial={{ opacity: 0, x: 40 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+    className="lg:w-2/5 order-2 lg:order-2 flex items-center justify-center relative"
+  >
+    <div className="bg-slate-50 shadow-2xl border-2 border-gray-300 p-3 relative rotate-2 rounded-xl">
+      <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-6 bg-yellow-200/80 rotate-2 shadow-md"></div>
+      <img
+        src="/assets/roquito-collagee.webp"
+        alt="Sobre mí"
+        className="w-72 lg:w-96 h-auto rounded-sm shadow-lg"
+      />
+    </div>
+  </motion.div>
+</section>
+  
+      <PieDePagina />
+    </main>
+  );
+}
