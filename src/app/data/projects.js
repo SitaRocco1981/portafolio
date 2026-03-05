@@ -9,13 +9,13 @@ export const projects = [
   {
     id: 2,
     title: "Calare joyas",
-    image: "/assets/mockup-calare.png",
+    image: "/assets/captura-mockup-calare.png ",
     slug: "calare",
   },
   {
     id: 3,
     title: "Círculo Startups",
-    image: "/assets/Mockup-Circulostartups.png",
+    image: "/assets/captura-circulo-mockup.png",
     slug: "circulo",
   },
 ];

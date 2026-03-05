@@ -23,7 +23,7 @@ export default function Proyectos() {
             <div className="h-44"></div>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 justify-items-center mt-24">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 justify-items-center mt-12 lg:mt-24">
         {projects.map((proj, index) => (
   <div key={proj.id} className="relative w-80 h-96 flex flex-col items-center">
     <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-6 

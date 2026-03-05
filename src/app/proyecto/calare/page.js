@@ -12,6 +12,7 @@ export default function ProyectoPage() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -34,28 +35,31 @@ export default function ProyectoPage() {
           className="text-center pt-6"
         >
           <h1 className="relative text-6xl lg:text-8xl mb-2 text-gray-800 handwriting drop-shadow-lg">
-            Rocío Castillo
-            <span className="hidden lg:block absolute left-1/2 bottom-0 -translate-x-1/2 
-                             w-[300px] lg:w-[600px] h-24 bg-fuchsia-500/50 rotate-2 -z-10 
-                             backdrop-blur-md border border-white/20 shadow-lg"></span>
+            Proyectos
+            <span
+              className="hidden lg:block absolute left-1/2 bottom-0 -translate-x-1/2 
+              w-[300px] lg:w-[600px] h-24 bg-fuchsia-500/50 rotate-2 -z-10 
+              backdrop-blur-md border border-white/20 shadow-lg"
+            ></span>
           </h1>
 
-          <motion.h2
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="text-center text-2xl lg:text-3xl text-gray-800 font-bold handwriting mb-4"
-          >
-            Diseñadora web
-          </motion.h2>
+         
 
-          {/* Redes sociales en mobile: bajo el h2 */}
+          {/* Redes sociales en mobile */}
           <div className="lg:hidden flex justify-center gap-6 mt-4">
             <a href="https://github.com/sitarocco1981" target="_blank">
               <img src="/assets/github.svg" alt="GitHub" className="w-8 h-8" />
             </a>
-            <a href="https://linkedin.com/in/rocio-castillo-soto" target="_blank">
-              <img src="/assets/linkedin.svg" alt="LinkedIn" className="w-8 h-8" />
+
+            <a
+              href="https://linkedin.com/in/rocio-castillo-soto"
+              target="_blank"
+            >
+              <img
+                src="/assets/linkedin.svg"
+                alt="LinkedIn"
+                className="w-8 h-8"
+              />
             </a>
           </div>
         </motion.div>
@@ -63,36 +67,53 @@ export default function ProyectoPage() {
         {/* Navbar */}
         <NavBar />
 
-        {/* Redes sociales en escritorio: arriba a la derecha */}
+        {/* Redes sociales escritorio */}
         <div className="hidden lg:flex fixed top-6 right-6 gap-6 z-50">
           <a href="https://github.com/sitarocco1981" target="_blank">
-            <img src="/assets/github.svg" alt="GitHub" className="w-8 h-8 hover:opacity-100 opacity-80" />
+            <img
+              src="/assets/github.svg"
+              alt="GitHub"
+              className="w-8 h-8 hover:opacity-100 opacity-80"
+            />
           </a>
+
           <a href="https://linkedin.com/in/rocio-castillo-soto" target="_blank">
-            <img src="/assets/linkedin.svg" alt="LinkedIn" className="w-8 h-8 hover:opacity-100 opacity-80" />
+            <img
+              src="/assets/linkedin.svg"
+              alt="LinkedIn"
+              className="w-8 h-8 hover:opacity-100 opacity-80"
+            />
           </a>
         </div>
       </header>
 
-      {/* Espacio para compensar header fijo */}
+      {/* Espacio header */}
       <div className="h-44"></div>
 
-
-
-
-
-
-      {/* Card principal con estilo similar a Home */}
+      {/* Card principal */}
       <motion.div
         layout
         initial={{ opacity: 0, y: 40, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ type: "spring", stiffness: 60, damping: 12 }}
-        className="relative z-10 bg-white/90 backdrop-blur-md border-2 border-gray-300 rounded-xl shadow-2xl max-w-6xl mx-auto p-8 space-y-12 mt-20 lg:mb-14"
-        style={{ backgroundImage: "url('/assets/textura-papel.png')", backgroundSize: "cover" }}
+        className="relative z-10
+        max-w-6xl mx-auto
+        space-y-12
+        p-0.5 lg:p-8
+        mt-10 lg:mt-20
+        lg:mb-14
+        lg:bg-white/90
+        lg:backdrop-blur-md
+        lg:border-2 lg:border-gray-300
+        lg:rounded-xl
+        lg:shadow-2xl"
+        style={{
+          backgroundImage: "url('/assets/textura-papel.png')",
+          backgroundSize: "cover",
+        }}
       >
         {/* Etiqueta decorativa */}
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-6 bg-yellow-200/80 rotate-2 shadow-md"></div>
+        <div className="hidden lg:block absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-6 bg-yellow-200/80 rotate-2 shadow-md"></div>
 
         {/* Contexto */}
         <section>
@@ -100,139 +121,206 @@ export default function ProyectoPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative text-5xl text-center mb-6 text-gray-800 handwriting drop-shadow-lg mt-6"
+            className="relative text-5xl text-center mb-6 text-gray-800 handwriting drop-shadow-lg mt-0"
           >
             Calare joyas
           </motion.h1>
-          <p className="text-lg text-gray-600">
-            Este proyecto corresponde a mi tienda de joyas artesanales. A partir de un wireframe de baja fidelidad, desarrollé el sitio en Next.js con un carrito de compras funcional que actualmente opera con pagos por transferencia. El sitio aún no está publicado, ya que se encuentra en etapa de pruebas y ajustes antes de su lanzamiento oficial.
+
+          <p className="text-lg text-gray-800 w-full leading-relaxed">
+            Este proyecto es de mi tienda de joyas artesanales, que por
+            el momento, sólo funciona en Instagram. A partir de un wireframe de
+            baja fidelidad, desarrollé el sitio en Next.js con un carrito de
+            compras funcional que actualmente opera con pagos por transferencia.
+            El sitio aún no está publicado, ya que se encuentra en etapa de
+            pruebas y ajustes antes de su lanzamiento oficial.
           </p>
         </section>
 
         {/* Mi rol */}
         <section className="bg-gray-50 p-6 rounded-lg shadow relative">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2">Mi rol en el proyecto</h2>
+          <div className="block lg:hidden absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-6 bg-yellow-200/80 rotate-2 shadow-md"></div>
+
+          <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+            Mi rol en el proyecto
+          </h2>
+
           <ul className="list-disc list-inside text-gray-600 mt-2 space-y-1">
-            <li>	Investigación: realicé benchmark de referentes y encuestas.</li>
-            <li>Diseño UX/UI: elaboré wireframes en Figma de baja fidelidad, usados para definir la estructura inicial del sitio.</li>
-            <li>Desarrollo web: implementé el sitio en Next.js, organizando el código de manera modular y reutilizable..</li>
+            <li>
+              <span className="font-semibold">Investigación:</span> realicé
+              Benchmark de referentes y encuestas.
+            </li>
+
+            <li>
+              <span className="font-semibold">Diseño UX/UI:</span> elaboré
+              wireframes en Figma de baja fidelidad, usados para definir la
+              estructura inicial del sitio.
+            </li>
+
+            <li>
+              <span className="font-semibold">Desarrollo web:</span> implementé
+              el sitio en Next.js, organizando el código de manera modular y
+              reutilizable.
+            </li>
           </ul>
         </section>
 
-        
-       {/* Vista resultado */}
+        {/* Vista resultado */}
         <section>
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2">Vista del resultado</h2>
-          <video controls className="rounded shadow-xl mb-6 mx-auto w-full max-w-4xl">
-            <source src="/assets/video-abogados.mp4" type="video/mp4" />
+          <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+            Vista del resultado
+          </h2>
+
+          <video
+            controls
+            className="rounded shadow-xl mb-6 mx-auto w-full max-w-4xl"
+          >
+            <source src="/assets/video-calare.mp4" type="video/mp4" />
             Tu navegador no soporta video.
           </video>
-          <p className="text-gray-600 text-center">
-            Captura del sitio web final mostrando la nueva estructura y diseño.
+
+          <p className="text-gray-600 text-center text-sm mt-2">
+            Captura del sitio web final.
           </p>
-          {/* Enlace al sitio */}
-  <div className="flex justify-center mt-3">
-    <a
-      href="https://www.abogadosvinadelmar.cl" 
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center gap-2 text-fuchsia-500 hover:text-fuchsia-800 font-semibold"
-    >
-      {/* Flecha antes del texto */}
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={2}
-      stroke="currentColor"
-      className="w-5 h-5"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-      />
-    </svg>
 
+          <div className="flex justify-center mt-3">
+            <a
+              href="https://github.com/SitaRocco1981/tienda-calare-joyas"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-fuchsia-500 hover:text-fuchsia-800 font-semibold"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-5 h-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                />
+              </svg>
 
-      Visitar sitio
-    </a>
-  </div>
-
-
+              Ver código
+            </a>
+          </div>
         </section>
-
-
-
-        {/* Problema, Proceso, Resultado narrativo... */}
-         {/* Problema */}
-        <section>
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2">Proceso</h2>
-          <p className="text-gray-600">
-            Encuestas: Para definir la estructura del sitio, realicé encuestas en Instagram. Los resultados mostraron que la mayoría de los clientes (66,7%) desean una tienda en línea acompañada de la historia de la marca, mientras que un 33,3% también valoran galerías de fotos, ofertas y colaboraciones. Estos hallazgos influyeron directamente en el diseño del sitio, priorizando secciones narrativas y un catálogo funcional con carrito de compras.
-          </p>
-          <Image
-            src="/assets/encuesta.png"
-            alt="Plantilla original"
-            width={1000}
-            height={720}
-            className="mt-8 shadow-md rounded "
-          />
-          
-        </section>
-
-
 
         {/* Proceso */}
         <section>
-          
-          <p className="text-gray-600">
-            Benchmark de sitios de joyería:
-Al analizar tres tiendas online, identifiqué buenas prácticas como fotografías de alta calidad, descripciones completas y un carrito de compra visible. También observé funciones como inicio de sesión y barra de búsqueda. En esta primera versión de mi sitio decidí no incluirlas, ya que mi catálogo es reducido y busco simplificar la experiencia de compra. Sin embargo, las considero elementos a integrar en futuras iteraciones.
-          </p>
-        </section>
+          <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+            Proceso
+          </h2>
 
-        <section>
-          
-          <p className="text-gray-600">
-            Wireframes: El wireframe de baja fidelidad me permitió definir la estructura inicial del sitio, priorizando la narrativa y la experiencia visual antes de integrar funcionalidades más complejas
-
+          <p className="text-gray-800 text-lg leading-relaxed">
+            <span className="font-semibold">Encuestas:</span>
+            <br></br>
+            Para definir la estructura del sitio, realicé encuestas en
+            Instagram. Los resultados mostraron que la mayoría de los clientes
+            (66,7%) desean una tienda en línea acompañada de la historia de la
+            marca, mientras que un 33,3% también valoran galerías de fotos,
+            ofertas y colaboraciones. Estos hallazgos influyeron directamente en
+            el diseño del sitio, priorizando secciones narrativas y un catálogo
+            funcional con carrito de compras.
           </p>
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2">Mi rol en el proyecto</h2>
-          <ul className="list-disc list-inside text-gray-600 mt-2 space-y-1">
-            <li>	Hero: para captar la atención y transmitir la identidad de la marca.</li>
-            <li>Detalle de producto: para mostrar cómo se organizarían las descripciones y fotografías.</li>
-            <li>Formulario de contacto/compra: para validar la interacción básica con el usuario.</li>
-          </ul>
+
           <Image
-            src="/assets/wireframe.png"
-            alt="Plantilla original"
+            src="/assets/encuesta.png"
+            alt="encuesta-calare"
             width={1000}
             height={720}
-            className="mt-8 shadow-md rounded "
+            className="mt-8 shadow-md rounded"
           />
-          
+
+          <p className="text-gray-600 text-center mt-2 text-sm">
+            Parte de los resultados de la encuesta realizada en mi cuenta de
+            Instagram
+          </p>
         </section>
 
-        {/* Resultado comparativo */}
         <section>
-          <h2 className="text-2xl font-semibold text-gray-800 mb-2">Resultado</h2>
+          <p className="text-gray-800 text-lg leading-relaxed">
+            <span className="font-semibold">
+              Benchmark de otras tiendas de joyería artesanal:
+            </span>
+            <br></br>
+            Al analizar tres tiendas online, identifiqué buenas prácticas como
+            fotografías de alta calidad, descripciones completas y un carrito
+            de compra visible. También observé funciones como inicio de sesión
+            y barra de búsqueda. En esta primera versión de mi sitio decidí no
+            incluirlas, ya que mi catálogo es reducido y busco simplificar la
+            experiencia de compra. Sin embargo, las considero elementos a
+            integrar en futuras iteraciones.
+          </p>
+        </section>
+
+        <section>
+          <p className="text-gray-800 text-lg leading-relaxed">
+            <span className="font-semibold">Wireframes:</span>
+            <br></br>
+            El wireframe de baja fidelidad me permitió definir la estructura
+            inicial del sitio, priorizando la narrativa y la experiencia visual
+            antes de integrar funcionalidades más complejas.
+          </p>
+
+          <p className="text-lg font-semibold text-gray-800 mb-2 mt-4">
+            Secciones del wireframe:
+          </p>
+
+          <ul className="list-disc list-inside text-gray-800 mt-2 space-y-1 text-lg mb-3">
+            <li>
+              Hero: para captar la atención y transmitir la identidad de la
+              marca.
+            </li>
+
+            <li>
+              Detalle de producto: para mostrar cómo se organizarían las
+              descripciones y fotografías.
+            </li>
+
+            <li>
+              Formulario de contacto/compra: para validar la interacción básica
+              con el usuario.
+            </li>
+          </ul>
+
+          <Image
+            src="/assets/wireframe-calare.webp"
+            alt="wireframe-calare"
+            width={1000}
+            height={720}
+            className="mt-12 rounded mx-auto"
+          />
+        </section>
+
+        {/* Resultado */}
+        <section>
+          <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+            Resultado
+          </h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
             <div>
-              <h3 className="text-lg font-bold text-gray-700 mb-2">Antes</h3>
+              <h3 className="text-lg font-bold text-gray-700 mb-2">Sección Inicio/Home</h3>
+
               <Image
-                src="/assets/Captura-antes.png"
-                alt="Antes"
+                src="/assets/Captura-inicio-calare.png"
+                alt="Captura inicio siti calare joyas"
                 width={600}
                 height={300}
                 className="shadow-lg rounded w-full"
               />
             </div>
+
             <div>
-              <h3 className="text-lg font-bold text-gray-700 mb-2">Después</h3>
+              <h3 className="text-lg font-bold text-gray-700 mb-2">Sección sobre la marca/historia</h3>
+
               <Image
-                src="/assets/captura-actual.webp"
-                alt="Después"
+                src="/assets/captura-historia-calarejoyas.png"
+                alt="Captura sección historia de calare joyas"
                 width={600}
                 height={400}
                 className="shadow-lg rounded w-full"
@@ -241,22 +329,43 @@ Al analizar tres tiendas online, identifiqué buenas prácticas como fotografía
           </div>
         </section>
 
-        {/* Resultado narrativo */}
-        <section>
-          <p className="text-gray-600">
-            El resultado fue un sitio web renovado y profesional, que proyecta confianza y claridad. 
-            La paleta sobria y la tipografía reforzaron la percepción de seriedad. 
-            El cliente destacó la mejora en la presentación de su estudio y la Agencia valoró la eficiencia en la implementación.
-          </p>
+        <section className="bg-gray-50 p-6 rounded-lg shadow relative mb-12">
+          <div className="block lg:hidden absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-6 bg-yellow-200/80 rotate-2 shadow-md"></div>
+
+          <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+            Logros alcanzados
+          </h2>
+
+          <ul className="list-disc list-inside text-gray-600 mt-2 space-y-1">
+            <li>
+              Sitio funcional en Next.js con carrito operativo mediante
+              transferencia.
+            </li>
+
+            <li>Integración de hallazgos de encuestas</li>
+
+            <li>
+              Benchmark aplicado: fotos de calidad, categorías claras, carrito
+              visible.
+            </li>
+          </ul>
+
+          <h2 className="text-2xl font-semibold text-gray-800 mb-2 mt-4">
+            Próximos pasos
+          </h2>
+
+          <ul className="list-disc list-inside text-gray-600 mt-2 space-y-1">
+            <li>Publicar el sitio y ampliar métodos de pago.</li>
+
+            <li>
+              Optimizar experiencia de usuario con búsqueda y cuenta de usuario
+              cuando el catálogo crezca.
+            </li>
+          </ul>
         </section>
-
-
-
-
       </motion.div>
-      < PieDePagina />
-      
+
+      <PieDePagina />
     </main>
-    
   );
 }

@@ -19,7 +19,7 @@ export default function SobreMi() {
                   <div className="h-44"></div>
 
       {/* Bloque principal */}
-<section className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-36 px-6 md:px-8 lg:px-12 max-w-7xl mx-auto lg:min-h-[70vh]">  
+<section className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-36 px-0 md:px-8 lg:px-12 max-w-7xl mx-auto lg:min-h-[70vh]">  
   {/* Texto */}
   <motion.div
     initial={{ opacity: 0, x: -40 }}
@@ -49,7 +49,7 @@ export default function SobreMi() {
     transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
     className="lg:w-2/5 order-2 lg:order-2 flex items-center justify-center relative"
   >
-    <div className="bg-slate-50 shadow-2xl border-2 border-gray-300 p-3 relative rotate-2 rounded-xl">
+    <div className="bg-slate-50 shadow-2xl border-2 border-gray-300 p-3 relative rotate-2 rounded-xl mb-12">
       <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-6 bg-yellow-200/80 rotate-2 shadow-md"></div>
       <img
         src="/assets/roquito-collagee.webp"

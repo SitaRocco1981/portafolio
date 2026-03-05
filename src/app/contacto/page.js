@@ -49,10 +49,8 @@ export default function Contacto() {
       {/* Espacio para compensar header fijo */}
       <div className="h-44"></div>
 
-
-
 {/* Layout principal */}
-<section className="flex flex-col lg:flex-row lg:h-[calc(100vh-220px)] items-center justify-center gap-4 lg:gap-6 px-6">
+<section className="flex flex-col lg:flex-row lg:h-[calc(100vh-220px)] items-center justify-center gap-4 lg:gap-6 px-0 lg:px-6">
   
   {/* Formulario primero en mobile, derecha en desktop */}
   <motion.div
@@ -63,7 +61,7 @@ export default function Contacto() {
   >
     <form
             onSubmit={handleSubmit}
-            className="bg-white/80 shadow-lg p-6 w-full max-w-sm flex flex-col gap-5 lg:mb-24 mt-8 border-2 border-gray-300 rounded-xl"
+            className="bg-white/80 shadow-lg p-6 w-full lg:max-w-sm flex flex-col gap-5 lg:mb-24 mt-8 border-2 border-gray-300 rounded-xl"
           >
             <h3 className="text-xl lg:text-2xl font-bold text-gray-800 handwriting text-center mb-2">
               ¿Tienes algún proyecto en mente?

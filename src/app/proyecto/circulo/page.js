@@ -42,16 +42,6 @@ export default function ProyectoPage() {
             ></span>
           </h1>
 
-          {/* 
-          <motion.h2
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="text-center text-2xl lg:text-3xl text-gray-800 font-bold handwriting mb-4"
-          >
-            Diseñadora web
-          </motion.h2>
-          */}
 
           {/* Redes sociales en mobile: bajo el h2 */}
           <div className="lg:hidden flex justify-center gap-6 mt-4">
@@ -122,14 +112,11 @@ export default function ProyectoPage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative text-5xl text-center mb-6 text-gray-800 handwriting drop-shadow-lg mt-0"
           >
-            Abogados Viña del Mar
+            Círculo Startups
           </motion.h1>
 
           <p className="text-lg text-gray-600">
-            Este sitio fue desarrollado durante mi práctica profesional en la Agencia SBS
-            Publicidad. Consistió en el rediseño del sitio web de un estudio de abogados en
-            Viña del Mar, utilizando Elementor como herramienta principal para estructurar y
-            dar forma a la propuesta digital.
+            Este proyecto se desarrolló junto a la Agencia SBS, para una comunidad que impulsa los emprendimientos guiados por la innovación en la región de Valparaíso.
           </p>
         </section>
 
@@ -143,14 +130,13 @@ export default function ProyectoPage() {
 
           <ul className="list-disc list-inside text-gray-600 mt-2 space-y-1">
             <li>
-              Rediseñé la estructura de las páginas en Figma, definiendo bloques y jerarquías claras.
+              Creé en Figma el diseño de las fichas de cada Startup, asegurando que incluyeran toda la información relevante y mantuvieran una estructura clara y coherente. También diseñé la sección de beneficios del programa, destacando los puntos clave de manera visual y accesible.
             </li>
             <li>
-              Implementé el diseño en Elementor, ajustando tipografías, paletas y disposición de contenidos.
+             Implementé ambos diseños en Elementor, configurando tipografías, paleta de colores y disposición de contenidos. Utilicé el plugin ACF (Advanced Custom Fields) para gestionar los datos dinámicos de las fichas.
+
             </li>
-            <li>
-              Gestioné recursos visuales desde bancos de imágenes gratuitos, adaptándolos al estilo del cliente.
-            </li>
+            
           </ul>
         </section>
 
@@ -164,18 +150,30 @@ export default function ProyectoPage() {
             controls
             className="rounded shadow-xl mb-6 mx-auto w-full max-w-4xl"
           >
-            <source src="/assets/video-abogados.mp4" type="video/mp4" />
+            <source src="/assets/video-detallestartups.mp4" type="video/mp4" />
             Tu navegador no soporta video.
           </video>
 
           <p className="text-gray-600 text-center text-sm">
-            Captura del sitio web final mostrando la nueva estructura y diseño.
+            Captura de sección de Directorio de Startups.
+          </p>
+
+          <video
+            controls
+            className="rounded shadow-xl mb-6 mx-auto w-full max-w-4xl mt-12"
+          >
+            <source src="/assets/video-beneficios-circulo.mp4" type="video/mp4" />
+            Tu navegador no soporta video.
+          </video>
+
+          <p className="text-gray-600 text-center text-sm">
+            Captura de sección Beneficios.
           </p>
 
           {/* Enlace al sitio */}
           <div className="flex justify-center mt-3">
             <a
-              href="https://www.abogadosvinadelmar.cl"
+              href="https://circulostartups.cl/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-fuchsia-500 hover:text-fuchsia-800 font-semibold"
@@ -206,29 +204,10 @@ export default function ProyectoPage() {
           <h2 className="text-2xl font-semibold text-gray-800 mb-2">Problema</h2>
 
           <p className="text-gray-800 leading-text text-lg">
-            El cliente partía de una plantilla estándar de Elementor y además, el desafío era
-            trabajar con recursos visuales limitados y transmitir profesionalismo, confianza
-            y claridad.
+            El directorio debía mostrar todas las Startups que se iban integrando de forma continua y en escritorio era necesario aprovechar el espacio para desplegar las fichas completas. En la sección de beneficios, la información debía presentarse de manera clara y breve, evitando sobrecargar la página.
           </p>
 
-          <Image
-            src="/assets/Captura-de-pantalla-abogados-plantillaantigua.webp"
-            alt="Plantilla original"
-            width={500}
-            height={320}
-            className="mt-4 shadow-md rounded mx-auto"
-          />
-
-          <Image
-            src="/assets/captura-team.png"
-            alt="Plantilla original"
-            width={500}
-            height={320}
-            className="mt-4 shadow-md rounded mx-auto"
-          />
-          <p className="text-gray-600 text-center text-sm mt-2">
-            Captura de algunas secciones de la plantilla original.
-          </p>
+        
         </section>
 
         {/* Proceso */}
@@ -236,12 +215,8 @@ export default function ProyectoPage() {
           <h2 className="text-2xl font-semibold text-gray-800 mb-2">Proceso</h2>
 
           <p className="text-gray-800 text-lg leading-text">
-            El proceso consistió en investigar distintos sitios web de estudios de abogados,
-            analizando paletas de colores, tipografías e imágenes. Esto permitió obtener
-            referencias y complementarlas con las ideas del cliente. Para resolver el tema
-            de las imágenes, recurrimos a bancos gratuitos relacionados con el ámbito
-            jurídico. El desarrollo se centró en optimizar la estructura del sitio para
-            facilitar la navegación y potenciar el diseño con una paleta sobria.
+            Para la sección del Directorio, diseñé en Figma las fichas de cada Startup, definiendo todos los campos necesarios. Posteriormente implementé el diseño en Elementor, gestionando los datos dinámicos con ACF.  Finalmente, se integró un filtro de búsqueda por nombre, sector económico y ejes tecnológicos.<br></br><br></br>
+            Para la sección de Beneficios, también la implementé en Elementor y añadí un modal/popup en el detalle, con el fin de mostrar la información de manera clara y breve sin sobrecargar la página.
           </p>
         </section>
 
@@ -251,23 +226,23 @@ export default function ProyectoPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
             <div>
-              <h3 className="text-lg font-bold text-gray-700 mb-2">Antes</h3>
+              
 
               <Image
-                src="/assets/Captura-antes.png"
-                alt="Antes"
+                src="/assets/directorio-startups.png"
+                alt="captura-sección- directorio-de-startups"
                 width={600}
-                height={300}
+                height={400}
                 className="shadow-lg rounded w-full"
               />
             </div>
 
             <div>
-              <h3 className="text-lg font-bold text-gray-700 mb-2">Después</h3>
+              
 
               <Image
-                src="/assets/captura-actual.webp"
-                alt="Después"
+                src="/assets/beneficios-circulo-modal.png"
+                alt="seccion-beneficios-circulo-startups"
                 width={600}
                 height={400}
                 className="shadow-lg rounded w-full"
@@ -279,10 +254,8 @@ export default function ProyectoPage() {
         {/* Resultado narrativo */}
         <section>
           <p className="text-gray-800 leading-text text-lg mb-20 p-0.5">
-            El resultado fue un sitio web renovado y profesional, que proyecta confianza y
-            claridad. La paleta sobria y la tipografía reforzaron la percepción de
-            seriedad. El cliente destacó la mejora en la presentación de su estudio y la
-            Agencia valoró la eficiencia en la implementación.
+            
+           El proyecto permitió contar con un directorio ordenado y dinámico, donde las fichas muestran toda la información relevante de cada Startup y pueden filtrarse fácilmente. Además, la sección de beneficios se presenta de forma concisa y accesible, mejorando la experiencia del usuario.
           </p>
         </section>
       </motion.div>
