@@ -307,8 +307,8 @@ export default function ProyectoPage() {
               <h3 className="text-lg font-bold text-gray-700 mb-2">Sección Inicio/Home</h3>
 
               <Image
-                src="/assets/Captura-inicio-calare.png"
-                alt="Captura inicio siti calare joyas"
+                src="/assets/captura-inicio-calare.png"
+                alt="Captura inicio sitio calare joyas"
                 width={600}
                 height={300}
                 className="shadow-lg rounded w-full"
