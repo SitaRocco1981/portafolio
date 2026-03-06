@@ -30,13 +30,13 @@ export default function SobreMi() {
     <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 handwriting mb-6">
       Diseñadora web
     </h2>
-    <p className="text-lg text-gray-800 leading-relaxed mb-6 font-semibold">
+    <p className="text-lg text-gray-800 leading-relaxed mb-6 ">
         ¡Hola! Soy Rocío y comencé este viaje a principios de 2023, cuando después de muchos años decidí estudiar. Fue un gran desafío, ya que partí literalmente desde cero en programación, pero con mucha motivación y curiosidad por aprender.
     </p>
-    <p className="text-lg text-gray-800 leading-relaxed mb-6 font-semibold">
+    <p className="text-lg text-gray-800 leading-relaxed mb-6 ">
       El diseño es un área que me atrae profundamente y que he podido explorar también a través de la orfebrería, oficio que llevo varios años desarrollando. La mezcla entre creatividad y técnica que he aprendido con la orfebrería la relaciono con el diseño y desarrollo web: partir desde la investigación y los primeros bocetos, hasta ver cómo todo se transforma en un sitio web funcional.
     </p>
-    <p className="text-lg text-gray-800 leading-relaxed font-semibold">
+    <p className="text-lg text-gray-800 leading-relaxed ">
       Si quieres que tus ideas se conviertan en un sitio web, me encantaría trabajar contigo 👩‍💻
 
     </p>
