@@ -9,7 +9,7 @@ export default function NavBar() {
   return (
     <nav className="mb-6">
       {/* Menú desktop */}
-      <ul className="hidden lg:flex justify-center gap-12 handwriting text-2xl text-gray-800 ">
+      <ul className="hidden lg:flex justify-center gap-12 handwriting xl:text-2xl lg:text-xl text-gray-800 ">
         <li className="hover:font-bold"><Link href="/">Inicio</Link></li>
         <li className="hover:font-bold"><Link href="/proyectos">Proyectos</Link></li>
         <li className="hover:font-bold"><Link href="/contacto">Contacto</Link></li>

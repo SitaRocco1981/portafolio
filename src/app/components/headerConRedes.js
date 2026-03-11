@@ -25,11 +25,14 @@ export default function HeaderConRedes({ titulo, subtitulo }) {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="text-center pt-6"
       >
-        <h1 className="relative text-6xl lg:text-8xl mb-2 text-gray-800 handwriting drop-shadow-lg">
+        <h1 className="mt-5 relative text-5xl  lg:text-6xl xl:text-7xl mb-2 text-gray-800 handwriting drop-shadow-lg">
           {titulo}
-          <span className="hidden lg:block absolute left-1/2 bottom-0 -translate-x-1/2 
-                           w-[300px] lg:w-[600px] h-24 bg-fuchsia-500/50 rotate-2 -z-10 
-                           backdrop-blur-md border border-white/20 shadow-lg"></span>
+          <span
+            className="hidden lg:block absolute left-1/2 bottom-0 -translate-x-1/2 
+                       w-[260px] md:w-[300px] lg:w-[400px] xl:w-[600px] h-20  lg:h-20 rounded-xl 
+                       bg-fuchsia-500/50 rotate-2 -z-10 
+                       backdrop-blur-md border border-white/20 shadow-lg"
+          ></span>
         </h1>
 
         {subtitulo && (
@@ -37,7 +40,7 @@ export default function HeaderConRedes({ titulo, subtitulo }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="text-center text-2xl lg:text-3xl text-gray-800 font-bold handwriting mb-4"
+            className="text-center text-xl md:text-2xl lg:text-2xl xl:text-3xl text-gray-800 font-bold handwriting mb-4"
           >
             {subtitulo}
           </motion.h2>
@@ -49,8 +52,6 @@ export default function HeaderConRedes({ titulo, subtitulo }) {
 
       {/* Navbar */}
       <NavBar />
-
-     
     </header>
   );
 }
