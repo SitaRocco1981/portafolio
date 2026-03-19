@@ -50,8 +50,7 @@ export default function HeaderConRedes({ titulo, subtitulo }) {
         <RedesSociales />
       </motion.div>
 
-      {/* Navbar */}
-      <NavBar />
+      
     </header>
   );
 }

@@ -1,161 +1,218 @@
 "use client";
-import { useState } from "react";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import PieDePagina from "./components/pieDePagina";
-import HeaderConRedes from "./components/headerConRedes";
+import NavBar from "./components/NavBar";
+import RedesSociales from "./components/redesSociales";
+
+function ScrambleText({ text, className }) {
+  const [display, setDisplay] = useState("");
+
+  useEffect(() => {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let frame = 0;
+
+    const interval = setInterval(() => {
+      setDisplay(
+        text
+          .split("")
+          .map((char, i) =>
+            i < frame ? char : chars[Math.floor(Math.random() * chars.length)]
+          )
+          .join("")
+      );
+
+      frame += 1 / 2;
+
+      if (frame >= text.length) {
+        clearInterval(interval);
+        setDisplay(text);
+      }
+    }, 30);
+
+    return () => clearInterval(interval);
+  }, [text]);
+
+  return <span className={className}>{display}</span>;
+}
 
 const images = [
-  {
-    src: "/assets/foto3.jpg",
-    alt: "Proyectos",
-    rotate: "-5deg",
-    pos: "xl:bottom-36 xl:left-1/2 xl:-translate-x-1/2",
-    color: "bg-slate-50",
-    z: "z-20",
-    order: "order-1 lg:order-2", 
-  },
-  {
-    src: "/assets/imagen-contacto.webp",
-    alt: "Contacto",
-    rotate: "-8deg",
-    pos: "xl:top-12 xl:left-20",
-    color: "bg-slate-50",
-    z: "z-10",
-    order: "order-2 lg:order-1", 
-  },
-  {
-    src: "/assets/image.webp",
-    alt: "SOBRE MI",
-    rotate: "6deg",
-    pos: "xl:top-32 xl:right-20",
-    color: "bg-slate-50",
-    z: "z-10",
-    order: "order-3 lg:order-3",
-  },
+  { src: "/assets/foto3.jpg", alt: "Proyectos" },
+  { src: "/assets/imagen-contacto.webp", alt: "Contacto" },
+  { src: "/assets/image.webp", alt: "SOBRE MI" },
 ];
 
 export default function Home() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <main
-      className="bg-cover bg-center bg-fixed p-8 relative lg:h-screen lg:overflow-hidden"
+      className="bg-cover bg-center bg-fixed relative"
       style={{ backgroundImage: "url('/assets/fondito.jpg')" }}
     >
-      {/* Header */}
-      <HeaderConRedes titulo="Rocío Castillo" subtitulo="Diseñadora web" />
-
-      {/* Espaciado */}
-      <div className="h-60 lg:h-20"></div>
-
-      {/* Cards */}
-      <motion.div
-        layout
-        className="
-          flex flex-col items-center gap-16
-          lg:flex-row lg:justify-center lg:items-start lg:gap-8
-          xl:relative xl:h-[500px] xl:w-full xl:mt-48 lg:mt-24
-        "
+      {/* NAV */}
+      <div
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
+        ${scrolled ? "bg-white/20 backdrop-blur-md shadow-md" : ""}
+      `}
       >
-        {images.map((img, index) => (
-          <motion.div
-            key={index}
-  layout
-  initial={{ opacity: 0, y: 40, scale: 0.9 }}
-  animate={{
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    
-    rotate:
-      window.innerWidth >= 1280
-        ? parseInt(img.rotate) 
-        : window.innerWidth >= 1024
-        ? index === 0
-          ? -3
-          : index === 1
-          ? 0
-          : 3 
-        : 0, 
-  }}
-  transition={{
-    type: "spring",
-    stiffness: 60,
-    damping: 12,
-    delay: index * 0.2,
-  }}
-  className={`${img.color} ${img.z} shadow-2xl 
-              w-80 h-96 
-              lg:w-72 lg:h-80 
-              xl:w-80 xl:h-96 
-              flex flex-col items-center justify-start p-4 
-              border-2 rounded-xl border-gray-300 
-              ${img.pos} xl:absolute relative 
-              ${img.order}`}
+        <div className="relative flex items-center justify-center py-4 px-6">
+          <div className="absolute left-1/2 -translate-x-1/2 lg:hidden">
+            <RedesSociales />
+          </div>
 
+          <div className="ml-auto lg:ml-0 lg:mx-auto mt-4 lg:mt-8">
+            <NavBar />
+          </div>
 
-            style={{
-              backgroundImage: "url('/assets/textura-papel.png')",
-              backgroundSize: "cover",
-            }}
-          >
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-6 bg-yellow-200/80 rotate-2 shadow-md"></div>
-
-            {img.alt === "Proyectos" ? (
-              <Link href="/proyectos" className="w-full h-64 lg:h-56 xl:h-64">
-                <motion.video
-                  src="/assets/video.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  poster="/assets/posterProyectos.jpg"
-                  className="w-full h-64 lg:h-56 xl:h-64 object-cover rounded-sm cursor-pointer border border-gray-300 shadow-lg"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 1, delay: index * 0.3 }}
-                />
-                <h2 className="mt-3 text-gray-900 uppercase font-extrabold 
-                               text-4xl lg:text-3xl xl:text-4xl 
-                               text-center bg-fuchsia-500/50 px-3 py-1 rounded-md shadow-md tracking-wide">
-                  {img.alt}
-                </h2>
-              </Link>
-            ) : (
-              <Link href={img.alt === "Contacto" ? "/contacto" : "/about"} className="w-full">
-                <motion.img
-                  src={img.src}
-                  alt={img.alt}
-                  className="w-full h-64 lg:h-56 xl:h-64 object-cover rounded-sm border border-gray-300 shadow-lg cursor-pointer"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 60,
-                    damping: 12,
-                    delay: index * 0.2,
-                  }}
-                  whileHover={{
-                    scale: 1.05,
-                    rotate: -2,
-                    filter: "hue-rotate(90deg) saturate(150%)",
-                  }}
-                  whileTap={{ scale: 0.97 }}
-                />
-                <h2 className="mt-3 text-gray-900 uppercase font-extrabold 
-                               text-3xl lg:text-2xl xl:text-3xl 
-                               text-center bg-fuchsia-500/50 px-3 py-1 rounded-md shadow-md tracking-wide">
-                  {img.alt}
-                </h2>
-              </Link>
-            )}
-          </motion.div>
-        ))}
-      </motion.div>
-
-      {/* Footer */}
-      <div className="mt-12 lg:mt-6">
-        <PieDePagina />
+          <div className="hidden lg:block absolute right-8">
+            <RedesSociales />
+          </div>
+        </div>
       </div>
+
+      {/* HERO */}
+      <section className="h-screen flex items-center justify-center px-6 relative overflow-hidden">
+        {/* TEXTURA ACUARELA SOLO HERO */}
+        <div
+          className="absolute inset-0 opacity-40 pointer-events-none"
+          style={{
+            backgroundImage: "url('/assets/fondo-abstracto.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            WebkitMaskImage: `
+              radial-gradient(circle at center, black 70%, transparent 100%)
+            `,
+            maskImage: `
+              radial-gradient(circle at center, black 70%, transparent 100%)
+            `,
+          }}
+        />
+
+        {/* CARD HERO */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, rotate: -1 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ duration: 0.6 }}
+          className="relative z-10 bg-white/80 backdrop-blur-md w-full max-w-xl lg:max-w-3xl flex flex-col items-center text-center pt-14 px-10 pb-16 border-2 border-gray-300 rounded-xl shadow-2xl"
+        >
+          <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-32 h-7 bg-yellow-200/80 rotate-2 shadow-md"></div>
+
+          <h1 className="text-5xl lg:text-7xl font-bold text-gray-800 handwriting drop-shadow-lg">
+            <ScrambleText text="Rocío Castillo" />
+          </h1>
+
+          <h2 className="text-xl lg:text-3xl text-gray-700 font-semibold handwriting mt-4">
+            <ScrambleText text="Diseñadora web" />
+          </h2>
+
+          <motion.div
+            animate={{ y: [0, 12, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5 }}
+            className="mt-10 text-sm text-gray-500"
+          >
+            <h3 className="text-xl">↓ scroll</h3>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* CARDS */}
+      <section className="relative px-6 pb-20 flex justify-center -mt-20 lg:mt-0 bg-fuchsia-500/10">
+        <div className="relative z-10 flex flex-col gap-8 lg:gap-20 items-center lg:flex-row lg:items-end lg:justify-center">
+          {images.map((img, index) => {
+            const isProyecto = img.alt === "Proyectos";
+
+            const rotations = {
+              Proyectos: "rotate-0 lg:order-2 lg:-translate-y-8 lg:scale-110 z-20",
+              Contacto: "lg:order-1 -rotate-6",
+              "SOBRE MI": "lg:order-3 rotate-6",
+            };
+
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 80, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                whileHover={{ scale: 1.08, y: -10, zIndex: 30 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.4,
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 15,
+                  delay: index * 0.2,
+                }}
+                className={`
+                  relative
+                  ${rotations[img.alt]}
+                  bg-slate-50 shadow-xl
+                  w-[85%] max-w-sm
+                  lg:w-[260px]
+                  xl:w-[300px]
+                  flex flex-col items-center
+                  pt-5 px-5 pb-14
+                  border border-gray-300 rounded-xl
+                  transition-shadow duration-300
+                  hover:shadow-2xl
+                `}
+                style={{
+                  backgroundImage: "url('/assets/textura-papel.png')",
+                  backgroundSize: "cover",
+                }}
+              >
+                {/* Sticker superior */}
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-yellow-200/80 rotate-2 shadow-md"></div>
+
+                <Link
+                  href={
+                    isProyecto
+                      ? "/proyectos"
+                      : img.alt === "Contacto"
+                      ? "/contacto"
+                      : "/about"
+                  }
+                  className="w-full"
+                >
+                  {isProyecto ? (
+                    <video
+                      src="/assets/video.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      poster="/assets/posterProyectos.jpg"
+                      className="w-full aspect-square object-cover rounded-sm border border-gray-300 shadow-md"
+                    />
+                  ) : (
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="w-full aspect-square object-cover rounded-sm border border-gray-300 shadow-md"
+                    />
+                  )}
+
+                  {/* Masking tape rosado */}
+                  <div className="relative flex justify-center mt-6">
+                    <div className="absolute w-[110%] h-8 bg-fuchsia-500/50 rotate-[-2deg] shadow-md rounded"></div>
+                    <h2 className="relative text-gray-900 uppercase font-extrabold text-lg tracking-wide">
+                      {img.alt}
+                    </h2>
+                  </div>
+                </Link>
+              </motion.div>
+            );
+          })}
+        </div>
+      </section>
+
+      <PieDePagina />
     </main>
   );
 }

@@ -3,91 +3,45 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import NavBar from "@/app/components/NavBar";
+import RedesSociales from "@/app/components/redesSociales";
 import PieDePagina from "@/app/components/pieDePagina";
 
 export default function ProyectoPage() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <main
-      className="bg-cover bg-center bg-fixed p-10 relative min-h-screen"
+      className="bg-cover bg-center bg-fixed pt-10 px-6 relative min-h-screen"
       style={{ backgroundImage: "url('/assets/fondito.jpg')" }}
     >
-      {/* HEADER FIJO */}
-      <header
-        className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 
-        ${scrolled ? "bg-white/90 backdrop-blur-md shadow-md" : ""}`}
+      {/* NAV */}
+      <div
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
+        ${scrolled ? "bg-white/20 backdrop-blur-md shadow-md" : ""}`}
       >
-        {/* Título y subtítulo */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center pt-6"
-        >
-          <h1 className="relative text-6xl lg:text-8xl mb-3 text-gray-800 handwriting drop-shadow-lg">
-            Proyectos
-            <span
-              className="hidden lg:block absolute left-1/2 bottom-0 -translate-x-1/2 
-              w-[300px] lg:w-[600px] h-24 bg-fuchsia-500/50 rotate-2 -z-10 
-              backdrop-blur-md border border-white/20 shadow-lg"
-            ></span>
-          </h1>
-
-          {/* 
-          <motion.h2
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="text-center text-2xl lg:text-3xl text-gray-800 font-bold handwriting mb-4"
-          >
-            Diseñadora web
-          </motion.h2>
-          */}
-
-          {/* Redes sociales en mobile: bajo el h2 */}
-          <div className="lg:hidden flex justify-center gap-6 mt-4">
-            <a href="https://github.com/sitarocco1981" target="_blank">
-              <img src="/assets/github.svg" alt="GitHub" className="w-8 h-8" />
-            </a>
-            <a href="https://linkedin.com/in/rocio-castillo-soto" target="_blank">
-              <img src="/assets/linkedin.svg" alt="LinkedIn" className="w-8 h-8" />
-            </a>
+        <div className="relative flex items-center justify-center py-4 px-6">
+          {/* Redes sociales en mobile */}
+          <div className="absolute left-1/2 -translate-x-1/2 lg:hidden">
+            <RedesSociales />
           </div>
-        </motion.div>
 
-        {/* Navbar */}
-        <NavBar />
+          {/* Navbar centrado */}
+          <div className="ml-auto lg:ml-0 lg:mx-auto mt-4 lg:mt-8">
+            <NavBar />
+          </div>
 
-        {/* Redes sociales en escritorio: arriba a la derecha */}
-        <div className="hidden lg:flex fixed top-6 right-6 gap-6 z-50">
-          <a href="https://github.com/sitarocco1981" target="_blank">
-            <img
-              src="/assets/github.svg"
-              alt="GitHub"
-              className="w-8 h-8 hover:opacity-100 opacity-80"
-            />
-          </a>
-          <a href="https://linkedin.com/in/rocio-castillo-soto" target="_blank">
-            <img
-              src="/assets/linkedin.svg"
-              alt="LinkedIn"
-              className="w-8 h-8 hover:opacity-100 opacity-80"
-            />
-          </a>
+          {/* Redes sociales en escritorio */}
+          <div className="hidden lg:block absolute right-8">
+            <RedesSociales />
+          </div>
         </div>
-      </header>
-
-      {/* Espacio para compensar header fijo */}
-      <div className="h-44"></div>
+      </div>
 
       {/* Card principal con estilo similar a Home */}
       <motion.div
@@ -99,7 +53,7 @@ export default function ProyectoPage() {
         max-w-6xl mx-auto
         space-y-12
         p-0.5 lg:p-8
-        mt-10 lg:mt-20
+        mt-24 lg:mt-32
         lg:mb-14
         lg:bg-white/90
         lg:backdrop-blur-md
@@ -120,7 +74,7 @@ export default function ProyectoPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative text-5xl text-center mb-6 text-gray-800 handwriting drop-shadow-lg mt-0"
+            className="relative text-3xl lg:text-5xl text-center mb-6 text-gray-800 handwriting drop-shadow-lg mt-0 font-semibold"
           >
             Abogados Viña del Mar
           </motion.h1>
