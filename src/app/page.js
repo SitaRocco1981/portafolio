@@ -124,7 +124,7 @@ export default function Home() {
       </section>
 
       {/* CARDS */}
-      <section className="relative px-6 pb-20 flex justify-center -mt-20 lg:mt-0 bg-fuchsia-500/10">
+      <section className="relative px-6 pb-20 flex justify-center -mt-20 lg:mt-0 bg-fuchsia-500/10 mt-12">
         <div className="relative z-10 flex flex-col gap-8 lg:gap-20 items-center lg:flex-row lg:items-end lg:justify-center">
           {images.map((img, index) => {
             const isProyecto = img.alt === "Proyectos";
@@ -160,7 +160,7 @@ export default function Home() {
                   pt-5 px-5 pb-14
                   border border-gray-300 rounded-xl
                   transition-shadow duration-300
-                  hover:shadow-2xl
+                  hover:shadow-2xl mt-8 lg:mt-32
                 `}
                 style={{
                   backgroundImage: "url('/assets/textura-papel.png')",
