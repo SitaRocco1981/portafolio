@@ -23,13 +23,13 @@ function ScrambleText({ text, className }) {
           .join("")
       );
 
-      frame += 1 / 2;
+      frame += 0.25;
 
       if (frame >= text.length) {
         clearInterval(interval);
         setDisplay(text);
       }
-    }, 30);
+    }, 60);
 
     return () => clearInterval(interval);
   }, [text]);
