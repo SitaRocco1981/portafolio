@@ -18,7 +18,7 @@ export default function ProyectoPage() {
   return (
     <main
       className="bg-cover bg-center bg-fixed pt-10 px-6 relative min-h-screen"
-      style={{ backgroundImage: "url('/assets/fondito.jpg')" }}
+      style={{ backgroundImage: "url('/assets/fondoo.webp')" }}
     >
       {/* NAV */}
       <div

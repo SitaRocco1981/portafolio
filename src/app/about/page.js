@@ -18,7 +18,7 @@ export default function SobreMi() {
   return (
     <main
       className="bg-cover bg-fixed bg-center pt-10 px-6 relative min-h-screen"
-      style={{ backgroundImage: "url('/assets/fondito.jpg')" }}
+      style={{ backgroundImage: "url('/assets/fondoo.webp')" }}
     >
       {/* NAV */}
       <div

@@ -19,7 +19,7 @@ export default function Proyectos() {
   return (
     <main
       className="min-h-screen flex flex-col bg-fixed bg-cover bg-center pt-10 px-6 relative"
-      style={{ backgroundImage: "url('/assets/fondito.jpg')" }}
+      style={{ backgroundImage: "url('/assets/fondoo.webp')" }}
     >
       {/* NAV */}
       <div

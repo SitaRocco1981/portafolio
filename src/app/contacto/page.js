@@ -45,7 +45,7 @@ export default function Contacto() {
   return (
     <main
       className="bg-cover bg-center bg-fixed p-18 relative"
-      style={{ backgroundImage: "url('/assets/fondito.jpg')" }}
+      style={{ backgroundImage: "url('/assets/fondoo.webp')" }}
     >
       {/* NAV */}
       <div

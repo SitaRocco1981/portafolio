@@ -6,37 +6,6 @@ import PieDePagina from "./components/pieDePagina";
 import NavBar from "./components/NavBar";
 import RedesSociales from "./components/redesSociales";
 
-function ScrambleText({ text, className }) {
-  const [display, setDisplay] = useState("");
-
-  useEffect(() => {
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    let frame = 0;
-
-    const interval = setInterval(() => {
-      setDisplay(
-        text
-          .split("")
-          .map((char, i) =>
-            i < frame ? char : chars[Math.floor(Math.random() * chars.length)]
-          )
-          .join("")
-      );
-
-      frame += 0.25;
-
-      if (frame >= text.length) {
-        clearInterval(interval);
-        setDisplay(text);
-      }
-    }, 60);
-
-    return () => clearInterval(interval);
-  }, [text]);
-
-  return <span className={className}>{display}</span>;
-}
-
 const images = [
   { src: "/assets/foto3.jpg", alt: "Proyectos" },
   { src: "/assets/imagen-contacto.webp", alt: "Contacto" },
@@ -55,7 +24,7 @@ export default function Home() {
   return (
     <main
       className="bg-cover bg-center bg-fixed relative"
-      style={{ backgroundImage: "url('/assets/fondito.jpg')" }}
+      style={{ backgroundImage: "url('/assets/fondoo.webp')" }}
     >
       {/* NAV */}
       <div
@@ -106,11 +75,11 @@ export default function Home() {
           <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-32 h-7 bg-yellow-200/80 rotate-2 shadow-md"></div>
 
           <h1 className="text-5xl lg:text-7xl font-bold text-gray-800 handwriting drop-shadow-lg">
-            <ScrambleText text="Rocío Castillo" />
+            Rocío Castillo
           </h1>
 
           <h2 className="text-xl lg:text-3xl text-gray-700 font-semibold handwriting mt-4">
-            <ScrambleText text="Diseñadora web" />
+            Diseñadora web
           </h2>
 
           <motion.div
@@ -162,12 +131,8 @@ export default function Home() {
                   transition-shadow duration-300
                   hover:shadow-2xl mt-8 lg:mt-32
                 `}
-                style={{
-                  backgroundImage: "url('/assets/textura-papel.png')",
-                  backgroundSize: "cover",
-                }}
+                
               >
-                {/* Sticker superior */}
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-yellow-200/80 rotate-2 shadow-md"></div>
 
                 <Link
@@ -182,7 +147,7 @@ export default function Home() {
                 >
                   {isProyecto ? (
                     <video
-                      src="/assets/video.mp4"
+                      src="/assets/hero-video-proyectos.mp4"
                       autoPlay
                       loop
                       muted
@@ -198,7 +163,6 @@ export default function Home() {
                     />
                   )}
 
-                  {/* Masking tape rosado */}
                   <div className="relative flex justify-center mt-6">
                     <div className="absolute w-[110%] h-8 bg-fuchsia-500/50 rotate-[-2deg] shadow-md rounded"></div>
                     <h2 className="relative text-gray-900 uppercase font-extrabold text-lg tracking-wide">
