@@ -134,33 +134,6 @@ export default function ProyectoPage() {
             Captura de sección Beneficios.
           </p>
 
-          {/* Enlace al sitio */}
-          <div className="flex justify-center mt-3">
-            <a
-              href="https://circulostartups.cl/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-fuchsia-500 hover:text-fuchsia-800 font-semibold"
-            >
-              {/* Flecha antes del texto */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="w-5 h-5"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-                />
-              </svg>
-
-              Visitar sitio
-            </a>
-          </div>
         </section>
 
         {/* Problema */}
